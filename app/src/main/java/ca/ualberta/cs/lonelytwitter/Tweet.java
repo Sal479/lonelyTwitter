@@ -1,5 +1,6 @@
 package ca.ualberta.cs.lonelytwitter;
 
+import java.util.Comparator;
 import java.util.Date;
 
 /**
@@ -34,7 +35,7 @@ public abstract class Tweet implements Tweetable{
      * @param date    the date
      * @param message the message
      */
-    public Tweet(Date date, String message){
+    public Tweet(String message, Date date){
         this.message = message;
         this.date = date;
     }

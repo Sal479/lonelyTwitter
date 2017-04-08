@@ -23,8 +23,8 @@ public class NormalTweet extends Tweet {
      * @param date    the date
      * @param message the message
      */
-    public NormalTweet(Date date, String message) {
-        super(date, message);
+    public NormalTweet(String message, Date date) {
+        super(message, date);
     }
 
     /**

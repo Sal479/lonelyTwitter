@@ -27,7 +27,7 @@ public class ImportantTweet extends Tweet {
          * @param date    the date
          * @param message the message
          */
-        super(date, message);
+        super(message, date);
     }
 
     @Override
