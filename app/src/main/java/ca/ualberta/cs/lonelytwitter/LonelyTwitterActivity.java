@@ -13,8 +13,10 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -85,31 +87,35 @@ public class LonelyTwitterActivity extends Activity {
 
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 
+
+
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
-				text = trimExtraSpaces(text);
-				bodyText.setText("");
-
-				Tweet tweet = new NormalTweet(text);
-				tweetList.add(tweet);
-
+				Tweet newTweet = new NormalTweet(text);
+				tweetList.add(newTweet);
 				adapter.notifyDataSetChanged();
 				saveInFile();
-
-//				saveInFile(text, new Date(System.currentTimeMillis()));
-//				finish();
 
 			}
 		});
 
 		clearButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
+				setResult(RESULT_OK);
 				tweetList.clear();
+				deleteFile("file.sav");
 				adapter.notifyDataSetChanged();
-				saveInFile();
+			}
+		});
+
+		oldTweetsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+				Intent intent = new Intent(LonelyTwitterActivity.this, EditTweetActivity.class);
+				intent.putExtra("tweet", tweetList.get(i));
+				startActivity(intent);
 			}
 		});
 	}
@@ -188,6 +194,10 @@ public class LonelyTwitterActivity extends Activity {
 			// TODO Auto-generated catch block
 			throw new RuntimeException();
 		}
+	}
+
+	public ListView getOldTweetsList(){
+		return oldTweetsList;
 	}
 
 }

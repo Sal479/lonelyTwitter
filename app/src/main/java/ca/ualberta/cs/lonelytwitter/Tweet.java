@@ -1,5 +1,6 @@
 package ca.ualberta.cs.lonelytwitter;
 
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ import java.util.Date;
  *
  * Created by sal on 08/04/17.
  */
-public abstract class Tweet implements Tweetable{
+public abstract class Tweet implements Tweetable, Serializable {
     /**
      * The date the tweet was sent. Stored as a Date object.
      */
@@ -80,4 +81,7 @@ public abstract class Tweet implements Tweetable{
     public String toString(){
         return date.toString() + " | " + message;
     }
+
+
+
 }
