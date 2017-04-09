@@ -65,8 +65,9 @@ public class LonelyTwitterActivity extends Activity {
 	 */
 
 	private static final String FILENAME = "file.sav";
-	private enum TweetListORdering {DATE_ASCENDING, DATE_DESCENDING, TEXT_ASCENDING,
-		TEXT_DESCENDING};
+	private enum TweetListOrdering {DATE_ASCENDING, DATE_DESCENDING, TEXT_ASCENDING,
+		TEXT_DESCENDING}
+
 	private EditText bodyText; // text box
 	private ListView oldTweetsList; // list
 
@@ -142,7 +143,7 @@ public class LonelyTwitterActivity extends Activity {
 		return inputString;
 	}
 
-	private void sortTweetListItems(TweetListORdering ordering){
+	private void sortTweetListItems(TweetListOrdering ordering){
 
 	}
 

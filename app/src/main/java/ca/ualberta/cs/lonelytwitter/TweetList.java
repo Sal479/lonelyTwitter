@@ -9,7 +9,7 @@ import java.util.Collections;
 
 
 public class TweetList {
-    private ArrayList<NormalTweet> tweets = new ArrayList<NormalTweet>();
+    private final ArrayList<NormalTweet> tweets = new ArrayList<NormalTweet>();
 
     public void addTweet(NormalTweet tweet) throws IllegalArgumentException{
         if (tweets.contains(tweet)){
